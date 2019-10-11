@@ -9,17 +9,23 @@ public class ParkingBoy {
         this.parkingLot = parkingLot;
     }
 
-    public ParkingTicket park(Car car) {
-        // TODO: Please implement the method
-        throw new RuntimeException("Not implemented");
-    }
-
     public Car fetch(ParkingTicket ticket) {
-        // TODO: Please implement the method
-        throw new RuntimeException("Not implemented");
+        return parkingLot.getCar(ticket);
     }
 
     public String getLastErrorMessage() {
         return lastErrorMessage;
     }
+
+    public ParkingTicket park(Car car) {
+        return parkingLot.addCar(car);
+    }
+
+    public void isValidTicket(ParkingTicket ticket){
+        Car car = new Car();
+        this.lastErrorMessage = parkingLot.checkParkingPosition(car) == true ?
+                "Not enough position." : parkingLot.checkValidTicket(ticket) == true ?
+                "Unrecognized parking ticket." :  "Please provide your parking ticket.";
+    }
+
 }
