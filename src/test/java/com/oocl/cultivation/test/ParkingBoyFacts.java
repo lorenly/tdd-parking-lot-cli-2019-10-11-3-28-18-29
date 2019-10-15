@@ -120,7 +120,6 @@ class story2{
         ParkingTicket fakeParkingTicket = parkingBoy.park(car);
         parkingBoy.fetch(fakeParkingTicket);
 
-        parkingBoy.isValidTicket(fakeParkingTicket);
         String fetch = parkingBoy.getLastErrorMessage();
         assertEquals(fetch, "Unrecognized parking ticket.");
     }
@@ -134,7 +133,6 @@ class story2{
         ParkingTicket parkingTicket = parkingBoy.park(car);
         parkingBoy.fetch(null);
 
-        parkingBoy.isValidTicket(parkingTicket);
         String fetch = parkingBoy.getLastErrorMessage();
         assertEquals(fetch, "Please provide your parking ticket.");
     }
@@ -151,9 +149,17 @@ class story2{
 
         Car car = new Car();
         ParkingTicket parkingTicket = parkingBoy.park(car);
-        parkingBoy.isValidTicket(parkingTicket);
         String fetch = parkingBoy.getLastErrorMessage();
 
         assertEquals(fetch, "Not enough position.");
+    }
+}
+
+class sotry3{
+    @Test
+    void should_park_to_second_parking_lot_when_first_parking_lot_is_full(){
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
     }
 }
