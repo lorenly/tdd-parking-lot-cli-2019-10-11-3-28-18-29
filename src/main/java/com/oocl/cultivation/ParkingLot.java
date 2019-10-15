@@ -31,12 +31,11 @@ public class ParkingLot {
         return car;
     }
 
-    public boolean checkValidTicket(ParkingTicket ticket){
-        return getCar(ticket) == null ? true : false;
+    public boolean isValidTicket(ParkingTicket ticket){
+        return ticket == null ? true : false;
     }
 
-    public boolean checkParkingPosition(Car car){
+    public boolean isParkingPositionFull(Car car){
         return addCar(car) == null ? true : false;
     }
-
 }
